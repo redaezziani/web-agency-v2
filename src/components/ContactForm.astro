@@ -1,0 +1,172 @@
+<div
+    class="bg-white w-full border border-slate-400/35 rounded-md overflow-hidden lg:absolute -right-72 -top-32 flex flex-col gap-3 justify-start items-start"
+>
+    <div
+        class="w-full flex-col items-center mt-4 capitalize flex justify-center"
+    >
+        <h5 class="text-primary text-xl font-semibold leading-none text-center">
+            Planifiez une consultation gratuite
+        </h5>
+        <hr class="w-full h-[1px] mt-4 bg-slate-400/35 rounded-full" />
+    </div>
+    <div class="flex w-full flex-col mt-5 p-2 gap-7 justify-start items-start">
+        <div class="flex w-full gap-3 justify-start items-center flex-wrap">
+            <div
+                class="flex flex-col gap-2 justify-start items-start w-full lg:w-[48%]"
+            >
+                <label
+                    class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="first-name"
+                >
+                    Prénom
+                </label>
+                <input
+                    id="first-name"
+                    placeholder="Entrez votre prénom"
+                    class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                />
+            </div>
+            <div
+                class="flex flex-col gap-2 justify-start items-start w-full lg:w-[48%]"
+            >
+                <label
+                    class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="last-name"
+                >
+                    Nom de famille
+                </label>
+                <input
+                    id="last-name"
+                    placeholder="Entrez votre nom de famille"
+                    class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                />
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-2 justify-start items-start w-full">
+            <label
+                class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="company"
+            >
+                Entreprise / Organisation
+            </label>
+            <input
+                id="company"
+                placeholder="Entrez le nom de votre entreprise"
+                class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
+                type="text"
+            />
+        </div>
+
+        <div class="flex flex-col gap-2 justify-start items-start w-full">
+            <label
+                class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="company-email"
+            >
+                Email de l'entreprise
+            </label>
+            <input
+                id="company-email"
+                placeholder="Entrez l'email de votre entreprise"
+                class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
+                type="text"
+            />
+        </div>
+
+        <div class="flex flex-col gap-2 justify-start items-start w-full">
+            <label
+                class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="phone-number"
+            >
+                Numéro de téléphone
+            </label>
+            <input
+                id="phone-number"
+                placeholder="Entrez votre numéro de téléphone"
+                class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
+                type="text"
+            />
+        </div>
+
+        <div class="flex flex-col gap-2 justify-start items-start w-full">
+            <label
+                class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="message"
+            >
+                Message
+            </label>
+            <textarea
+                id="message"
+                placeholder="Entrez votre message"
+                class="flex h-10 w-full rounded-md border min-h-32 border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
+            ></textarea>
+        </div>
+
+        <button
+            id="submit"
+            class="flex h-10 w-full lg:w-48 rounded-md bg-primary text-white text-sm font-semibold justify-center items-center"
+        >
+            Soumettre
+        </button>
+    </div>
+</div>
+
+<script>
+    const firstNameInput = document.getElementById('first-name') as HTMLInputElement;
+    const lastNameInput = document.getElementById('last-name') as HTMLInputElement;
+    const companyInput = document.getElementById('company') as HTMLInputElement;
+    const companyEmailInput = document.getElementById('company-email') as HTMLInputElement;
+    const phoneNumberInput = document.getElementById('phone-number') as HTMLInputElement;
+    const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+    const submitButton = document.getElementById('submit') as HTMLButtonElement;
+
+    submitButton?.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+
+        if (!firstNameInput?.value || !lastNameInput?.value || !companyInput?.value || !companyEmailInput?.value || !phoneNumberInput?.value || !messageInput?.value) {
+            alert('Veuillez remplir tous les champs');
+            return;
+        }
+
+        if (!emailRegex.test(companyEmailInput.value)) {
+            alert('Veuillez entrer une adresse email valide');
+            return;
+        }
+
+        if (!phoneRegex.test(phoneNumberInput.value)) {
+            alert('Veuillez entrer un numéro de téléphone valide');
+            return;
+        }
+
+        if (messageInput.value.length < 10) {
+            alert('Le message doit contenir au moins 10 caractères');
+            return;
+        }
+
+        const data = await fetch('/api/sendEmail.json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName: firstNameInput.value,
+                lastName: lastNameInput.value,
+                company: companyInput.value,
+                companyEmail: companyEmailInput.value,
+                phoneNumber: phoneNumberInput.value,
+                message: messageInput.value
+            })
+        });
+
+        if (data.ok) {
+            alert('Votre message a été envoyé avec succès');
+        } else {
+            alert('Une erreur est survenue lors de l\'envoi de votre message');
+        }
+    });
+</script>
