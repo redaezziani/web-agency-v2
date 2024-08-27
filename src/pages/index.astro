@@ -6,6 +6,7 @@ import CardsSection from "../components/CardsSection.astro";
 import Promise from "../components/Promise.astro";
 import Pricing from "../components/Pricing.astro";
 import ContactSection from "../components/ContactSection.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title=" agency for building .">
@@ -84,6 +85,7 @@ import ContactSection from "../components/ContactSection.astro";
     <Promise />
     <Pricing />
     <ContactSection />
+    <Footer/>
 </Layout>
 
 <script
@@ -91,15 +93,12 @@ import ContactSection from "../components/ContactSection.astro";
     src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
 ></script>
 <script>
-    // @ts-ignore
     import Alpine from "alpinejs";
     // @ts-ignore
     import focus from "@alpinejs/focus";
-    // @ts-ignore
     import intersect from "@alpinejs/intersect";
     Alpine.plugin(intersect);
     Alpine.plugin(focus);
-    // @ts-ignore
     import gsap from "gsap";
 
     gsap.from("#hero-title", {

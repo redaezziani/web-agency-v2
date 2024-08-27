@@ -23,6 +23,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@types/alpinejs__focus": "^3.13.4",
     "@types/alpinejs__intersect": "^3.13.4"
   }
 }
