@@ -1,0 +1,75 @@
+---
+import Image from "astro/components/Image.astro";
+---
+
+<section
+id="about"
+class="w-full min-h-[70vh] overflow-hidden lg:min-h-[90vh] justify-start items-center flex flex-col relative"
+>
+<div
+    class="w-full h-[70vh] lg:min-h-[90vh] absolute left-0 top-0 -z-[1]"
+>
+    <Image
+        width={1920}
+        height={1080}
+        src="/hero.webp"
+        class="object-cover w-full h-full"
+        alt=""
+        srcset=""
+    />
+</div>
+<span
+    class="w-full h-[70vh] lg:min-h-[90vh] absolute left-0 top-0 backdrop-blur-sm z-[1] bg-white/10"
+>
+</span>
+<div
+    class="flex flex-col md:px-0 px-3 z-10 justify-start items-start gap-6 max-w-7xl mt-52"
+>
+    <h2
+        id="hero-title"
+        class="text-3xl lg:text-5xl text-white capitalize"
+    >
+        Logiciels de Gestion Commerciale, Comptabilité et Bâtiment
+        Conformes aux Normes Marocaines
+    </h2>
+    <p
+        id="hero-description"
+        class="text-slate-100 text-sm md:text-xl max-w-4xl"
+    >
+        EBP Maroc, votre partenaire de confiance pour des logiciels : de
+        gestion commerciale, comptabilité et bâtiment, conformes aux
+        normes marocaines. Simplifiez et optimisez la gestion de votre
+        entreprise avec nos solutions innovantes, spécialement conçues
+        pour répondre aux besoins des entreprises marocaines.
+    </p>
+
+    <button
+        id="hero-button"
+        class="bg-primary group text-sm hover:outline outline-primary/80 outline-offset-2 lg:text-base text-slate-100 px-6 py-3 flex gap-2 justify-center items-center rounded-full"
+    >
+        Découvrir nos solutions
+
+        <svg
+            class="group-hover:ml-2 group-hover:-rotate-45 transition-all ease-in-out duration-500"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="none"
+        >
+            <path
+                d="M20.0001 11.9998L4.00012 11.9998"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            <path
+                d="M15.0003 17C15.0003 17 20.0002 13.3176 20.0002 12C20.0002 10.6824 15.0002 7 15.0002 7"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+    </button>
+</div>
+</section>

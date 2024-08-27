@@ -2,21 +2,30 @@
 import { Image } from "astro:assets";
 
 const navLinks = [
-    {
+{
         name: 'Home',
         href: '/#',
+        label: '#',
     },
     {
         name: 'About',
         href: '/#about',
+        label: 'about',
     },
     {
         name: 'Services',
         href: '/#services',
+        label: 'services',
+    },
+    {
+        name: 'Pricing',
+        href: '/#pricing',
+        label: 'pricing',
     },
     {
         name: 'Contact',
         href: '/#contact',
+        label: 'contact',
     },
 ];
 ---
@@ -81,12 +90,15 @@ const navLinks = [
     >
         Navigation
     </h1>
-    <ul class="flex flex-col gap-4">
+    <ul
+    id="side-bar-nav-links"
+    class="flex flex-col gap-4">
         {
             navLinks.map((link) => {
                 return (
                     <li class=" text-slate-500 text-sm focus:text-primary transition-all ease-in-out duration-300 cursor-pointer">
                         <a
+                        aria-label={link.label}
                         x-on:click="open = false"
                         href={`${link.href}`}
                         >{link.name}</a>
@@ -97,3 +109,53 @@ const navLinks = [
     </ul>
 </aside>
 </div>
+
+
+<script>
+    // Use a standard event like 'DOMContentLoaded'
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section"); // Ensure sections exist on your page
+      const navItems = document.querySelectorAll("ul li a");
+  
+      const callback = (entries:any) => {
+        entries.forEach((entry:any) => {
+          if (entry.isIntersecting) {
+            navItems.forEach((item) => {
+              if (item.getAttribute("aria-label") === entry.target.id) {
+                item.classList.add("text-primary");
+              } else {
+                
+                item.classList.remove("text-primary");
+                // else remove the class and add it to the home link
+                if (entry.target.id === "about") {
+                  navItems[0].classList.add("text-primary");
+                }
+              }
+            });
+          }
+        });
+      };
+  
+      const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: "100px",
+        threshold: 0.7,
+      });
+  
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+  
+      // Cleanup function to disconnect observer when not needed
+      document.onvisibilitychange = () => {
+        if (document.visibilityState === "hidden") {
+          observer.disconnect();
+        } else {
+          sections.forEach((section) => {
+            observer.observe(section);
+          });
+        }
+      };
+    });
+  </script>
+  
