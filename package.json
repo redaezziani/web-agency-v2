@@ -21,5 +21,8 @@
     "gsap": "^3.12.5",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/alpinejs__intersect": "^3.13.4"
   }
 }

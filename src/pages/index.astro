@@ -91,13 +91,15 @@ import ContactSection from "../components/ContactSection.astro";
     src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
 ></script>
 <script>
+    // @ts-ignore
     import Alpine from "alpinejs";
     // @ts-ignore
     import focus from "@alpinejs/focus";
+    // @ts-ignore
     import intersect from "@alpinejs/intersect";
-
     Alpine.plugin(intersect);
     Alpine.plugin(focus);
+    // @ts-ignore
     import gsap from "gsap";
 
     gsap.from("#hero-title", {
