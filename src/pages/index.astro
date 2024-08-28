@@ -32,12 +32,22 @@ import Main from "../components/Main.astro";
     Alpine.plugin(intersect);
     Alpine.plugin(focus);
     import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+    // Register the ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Ensure animations are only triggered when the element is in view
     gsap.from("#hero-title", {
         y: 100,
         opacity: 0,
         duration: 1,
         delay: 0.5,
+        scrollTrigger: {
+            trigger: "#hero-title",
+            start: "top 80%", // Animation starts when the top of the element hits 80% of the viewport height
+            toggleActions: "play none none reverse", // Play the animation when entering, and reverse it when leaving
+        },
     });
 
     gsap.from("#hero-description", {
@@ -45,6 +55,11 @@ import Main from "../components/Main.astro";
         opacity: 0,
         duration: 1,
         delay: 1,
+        scrollTrigger: {
+            trigger: "#hero-description",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+        },
     });
 
     gsap.from("#hero-button", {
@@ -52,17 +67,26 @@ import Main from "../components/Main.astro";
         opacity: 0,
         duration: 1,
         delay: 1.5,
+        scrollTrigger: {
+            trigger: "#hero-button",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+        },
     });
 </script>
 
 <style is:global>
-    @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
     *,
     html {
         scroll-behavior: smooth;
     }
-    body {
-        font-family: "Onest", sans-serif;
+    body {  
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        
+        
     }
     ::-webkit-scrollbar {
         width: 8px;
