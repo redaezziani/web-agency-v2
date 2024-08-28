@@ -26,6 +26,12 @@
                     class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
                 />
+                <span
+                    id="first-name-error"
+                    class="text-xs text-red-500"
+                    class="text-xs text-red-500"
+                >
+                </span>
             </div>
             <div
                 class="flex flex-col gap-2 justify-start items-start w-full lg:w-[48%]"
@@ -42,6 +48,7 @@
                     class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
                 />
+                <span id="last-name-error" class="text-xs text-red-500"> </span>
             </div>
         </div>
 
@@ -58,6 +65,7 @@
                 class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
             />
+            <span id="company-error" class="text-xs text-red-500"> </span>
         </div>
 
         <div class="flex flex-col gap-2 justify-start items-start w-full">
@@ -73,6 +81,7 @@
                 class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
             />
+            <span id="company-email-error" class="text-xs text-red-500"></span>
         </div>
 
         <div class="flex flex-col gap-2 justify-start items-start w-full">
@@ -88,6 +97,7 @@
                 class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
             />
+            <span id="phone-number-error" class="text-xs text-red-500"> </span>
         </div>
 
         <div class="flex flex-col gap-2 justify-start items-start w-full">
@@ -102,6 +112,7 @@
                 placeholder="Entrez votre message"
                 class="flex h-10 w-full rounded-md border min-h-32 border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
             ></textarea>
+            <span id="message-error" class="text-xs text-red-500"> </span>
         </div>
 
         <button
@@ -114,44 +125,118 @@
 </div>
 
 <script>
-    const firstNameInput = document.getElementById('first-name') as HTMLInputElement;
-    const lastNameInput = document.getElementById('last-name') as HTMLInputElement;
-    const companyInput = document.getElementById('company') as HTMLInputElement;
-    const companyEmailInput = document.getElementById('company-email') as HTMLInputElement;
-    const phoneNumberInput = document.getElementById('phone-number') as HTMLInputElement;
-    const messageInput = document.getElementById('message') as HTMLTextAreaElement;
-    const submitButton = document.getElementById('submit') as HTMLButtonElement;
+    const firstNameInput = document.getElementById(
+        "first-name",
+    ) as HTMLInputElement;
+    const lastNameInput = document.getElementById(
+        "last-name",
+    ) as HTMLInputElement;
+    const companyInput = document.getElementById("company") as HTMLInputElement;
+    const companyEmailInput = document.getElementById(
+        "company-email",
+    ) as HTMLInputElement;
+    const phoneNumberInput = document.getElementById(
+        "phone-number",
+    ) as HTMLInputElement;
+    const messageInput = document.getElementById("message") as HTMLInputElement;
+    const submitButton = document.getElementById("submit");
 
-    submitButton?.addEventListener('click', async (event) => {
+    const firstNameError = document.getElementById(
+        "first-name-error",
+    ) as HTMLSpanElement;
+    const lastNameError = document.getElementById(
+        "last-name-error",
+    ) as HTMLSpanElement;
+    const companyError = document.getElementById(
+        "company-error",
+    ) as HTMLSpanElement;
+    const companyEmailError = document.getElementById(
+        "company-email-error",
+    ) as HTMLSpanElement;
+    const phoneNumberError = document.getElementById(
+        "phone-number-error",
+    ) as HTMLSpanElement;
+    const messageError = document.getElementById(
+        "message-error",
+    ) as HTMLSpanElement;
+
+    submitButton?.addEventListener("click", async (event) => {
         event.preventDefault();
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^\+?[1-9]\d{1,14}$/;
 
-        if (!firstNameInput?.value || !lastNameInput?.value || !companyInput?.value || !companyEmailInput?.value || !phoneNumberInput?.value || !messageInput?.value) {
-            alert('Veuillez remplir tous les champs');
+        let hasError = false;
+
+        // Clear previous error messages
+        firstNameError.textContent = "";
+        lastNameError.textContent = "";
+        companyError.textContent = "";
+        companyEmailError.textContent = "";
+        phoneNumberError.textContent = "";
+        messageError.textContent = "";
+
+        if (!firstNameInput?.value) {
+            firstNameError.textContent = "Veuillez entrer votre prénom.";
+            hasError = true;
+        }
+        if (!lastNameInput?.value) {
+            lastNameError.textContent = "Veuillez entrer votre nom de famille.";
+            hasError = true;
+        }
+        if (!companyInput?.value) {
+            companyError.textContent =
+                "Veuillez entrer le nom de votre entreprise.";
+            hasError = true;
+        }
+        if (!companyEmailInput?.value) {
+            companyEmailError.textContent =
+                "Veuillez entrer l'email de votre entreprise.";
+            hasError = true;
+        } else if (!emailRegex.test(companyEmailInput.value)) {
+            companyEmailError.textContent =
+                "Veuillez entrer une adresse email valide.";
+            hasError = true;
+        }
+        if (!phoneNumberInput?.value) {
+            phoneNumberError.textContent =
+                "Veuillez entrer votre numéro de téléphone.";
+            hasError = true;
+        } else if (!phoneRegex.test(phoneNumberInput.value)) {
+            phoneNumberError.textContent =
+                "Veuillez entrer un numéro de téléphone valide.";
+            hasError = true;
+        }
+        if (!messageInput?.value || messageInput.value.length < 10) {
+            messageError.textContent =
+                "Le message doit contenir au moins 10 caractères.";
+            hasError = true;
+        }
+
+        if (hasError) {
             return;
         }
 
-        if (!emailRegex.test(companyEmailInput.value)) {
-            alert('Veuillez entrer une adresse email valide');
-            return;
-        }
-
-        if (!phoneRegex.test(phoneNumberInput.value)) {
-            alert('Veuillez entrer un numéro de téléphone valide');
-            return;
-        }
-
-        if (messageInput.value.length < 10) {
-            alert('Le message doit contenir au moins 10 caractères');
-            return;
-        }
-
-        const data = await fetch('/api/contact.json', {
-            method: 'POST',
+        var loader = `<div class="flex justify-center items-center w-full h-full">
+           <svg
+           class="animate-spin h-5 w-5 text-white"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"  fill="none">
+    <path d="M12 3V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M12 18V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M21 12L18 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M6 12L3 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M18.3635 5.63672L16.2422 7.75804" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M7.75804 16.2422L5.63672 18.3635" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M18.3635 18.3635L16.2422 16.2422" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M7.75804 7.75804L5.63672 5.63672" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+<span class="text-white ml-2">Envoi en cours...</span>
+            </div>`;
+        submitButton.innerHTML = loader;
+        const data = await fetch("/api/contact.json", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 firstName: firstNameInput.value,
@@ -159,14 +244,26 @@
                 company: companyInput.value,
                 companyEmail: companyEmailInput.value,
                 phoneNumber: phoneNumberInput.value,
-                message: messageInput.value
-            })
+                message: messageInput.value,
+            }),
         });
 
+        submitButton.innerHTML = "Soumettre";
+
         if (data.ok) {
-            alert('Votre message a été envoyé avec succès');
+            // Clear the form and show a success message
+            firstNameInput.value = "";
+            lastNameInput.value = "";
+            companyInput.value = "";
+            companyEmailInput.value = "";
+            phoneNumberInput.value = "";
+            messageInput.value = "";
+
+            // Show a success message, e.g., in a notification area
+            alert("Votre message a été envoyé avec succès");
         } else {
-            alert('Une erreur est survenue lors de l\'envoi de votre message');
+            // Show an error message in a notification area
+            alert("Une erreur est survenue lors de l'envoi de votre message");
         }
     });
 </script>
