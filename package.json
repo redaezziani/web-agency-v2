@@ -14,6 +14,7 @@
     "@alpinejs/intersect": "^3.14.1",
     "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/check": "^0.9.3",
+    "@astrojs/node": "^8.3.3",
     "@astrojs/tailwind": "^5.1.0",
     "@types/alpinejs": "^3.13.10",
     "alpinejs": "^3.14.1",
