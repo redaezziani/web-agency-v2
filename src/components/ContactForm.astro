@@ -164,7 +164,7 @@
         event.preventDefault();
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+        const phoneRegex = /^\+?[1-9]\d{9,14}$/; // Matches +2121234567890 min 10 digits
 
         let hasError = false;
 
