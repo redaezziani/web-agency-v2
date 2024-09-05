@@ -1,10 +1,44 @@
 ---
 import Card from "./Card.astro";
+
+const features = [
+    {
+        title: "Base de Données Centralisée",
+        description: "Centralisez toutes les données relatives à vos prospects et clients en un seul endroit.",
+        image :"/cards/card-1.jpg"
+    },
+    {
+        title: "Interface Utilisateur Intuitive",
+        description: "Visualisez les informations essentielles à travers un tableau de bord clair et ergonomique.",
+        image :"/cards/card-2.jpg"
+    },
+    {
+        title: "Visualisation Avancée des Données",
+        description: "Analysez vos performances avec des graphiques interactifs et des visualisations de données dynamiques.",
+        image :"/cards/card-3.png"
+    },
+    {
+        title: "Rapports Personnalisés",
+        description: "Créez des rapports détaillés adaptés à vos besoins spécifiques pour suivre les progrès et les tendances.",
+        image :"/cards/card-4.jpg"
+    },
+    {
+        title: "Performance et Pilotage Interne (KPI)",
+        description: "Surveillez les performances de votre entreprise grâce à des indicateurs clés de performance (KPI) personnalisés.",
+        image :"/cards/card-5.jpg"
+    },
+    {
+        title: "Contrôle Administratif",
+        description: "Gérez les droits et permissions des utilisateurs pour assurer une utilisation sécurisée du système.",
+        image :"/cards/card-6.jpg"
+    }
+];
+
 ---
 
 <section
 id="services"
-class=" px-3  relative min-h-[30rem] bg-slate-900 flex-col w-full md:px-0 flex overflow-hidden justify-center items-center  mt-2"
+class=" px-3  relative min-h-[30rem] bg-slate-900 flex-col w-full py-5 md:px-0 flex overflow-hidden justify-center items-center  mt-2"
 >
 <div class="grid absolute z-0 lg:grid-cols-3  w-full h-full max-w-7xl gap-2">
     <span class=" w-1  h-full border-l border-slate-700 border-dashed"></span>
@@ -13,25 +47,9 @@ class=" px-3  relative min-h-[30rem] bg-slate-900 flex-col w-full md:px-0 flex o
 </div>
 
 <div class="grid  z-10 py-3  lg:grid-cols-3    w-full h-full max-w-7xl gap-2">
-    <Card
-        title="Gestion Commerciale"
-        description="Gérez efficacement votre activité commerciale, de la facturation à la gestion des stocks, en passant par le suivi des commandes et des clients."
-        image="/cards/card-1.webp"
-        link="/gestion-commerciale"
-    />
-    <Card
-        title="Comptabilité"
-        description="Simplifiez la gestion de votre comptabilité, en conformité avec les normes marocaines, grâce à des outils intuitifs et performants. maîtrisez vos finances."
-        image="/cards/card-2.webp"
-        link="/comptabilite"
-    />
-
-    <Card
-        title="Bâtiment"
-        description="Optimisez la gestion de vos chantiers et de vos projets de construction, en suivant en temps réel l’avancement de vos travaux."
-        image="/cards/card-3.webp"
-        link="/batiment"
-    />
+    {features.map((feature, index) => (
+        <Card title={feature.title} description={feature.description} image={feature.image}  key={index} /> 
+    ))}
 
 </div>
 </div>

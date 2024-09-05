@@ -1,0 +1,38 @@
+---
+import Accordion from "./Accordion.astro";
+const faqs = [
+    {
+        question: "Comment Lymo aide-t-il à augmenter les taux de conversion ?",
+        answer: "Lymo vous permet de suivre chaque prospect de manière détaillée, en offrant un accompagnement personnalisé basé sur leur profil et leur avancement. Grâce à des outils de suivi avancés et des actions spécifiques recommandées, vous pouvez transformer plus de prospects en clients."
+    },
+    {
+        question: "Est-il facile d'intégrer Lymo dans notre système existant ?",
+        answer: "Oui, Lymo est conçu pour être facilement intégré avec vos systèmes actuels. Nous proposons des API flexibles et des services de support pour assurer une transition fluide sans interruption de vos opérations."
+    },
+    {
+        question: "Quelles sont les options de personnalisation disponibles ?",
+        answer: "Lymo est hautement personnalisable. Vous pouvez adapter les tableaux de bord, les rapports, les formulaires de saisie, et même les notifications pour répondre spécifiquement aux besoins de votre entreprise."
+    },
+    {
+        question: "Lymo est-il sécurisé ?",
+        answer: "Absolument. Lymo utilise des protocoles de sécurité de pointe pour protéger vos données. De plus, vous avez un contrôle total sur les accès utilisateur, garantissant que seules les personnes autorisées puissent accéder aux informations sensibles."
+    },
+    {
+        question: "Quel type de support est offert avec Lymo ?",
+        answer: "Nous offrons un support complet incluant une assistance technique 24/7, des formations pour vos équipes, et des mises à jour régulières pour améliorer continuellement votre expérience avec Lymo."
+    }
+];
+
+---
+
+<div class="w-full max-w-3xl mx-auto px-4 mt-44 md:px-6 ">
+
+    <h1 class="text-2xl font-bold text-slate-900 mb-4">FAQs</h1>
+
+    <!-- Accordion component -->
+    <div class="divide-y divide-slate-200">
+        {faqs.map((faq, index) => (
+            <Accordion question={faq.question} answer={faq.answer} key={index} />
+        ))}
+    </div>
+</div>

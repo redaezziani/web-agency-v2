@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Counters from "../components/Counters.astro";
 import CardsSection from "../components/CardsSection.astro";
@@ -8,6 +7,7 @@ import Pricing from "../components/Pricing.astro";
 import ContactSection from "../components/ContactSection.astro";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main.astro";
+import Faq from "../components/Faq.astro";
 ---
 
 <Layout title=" agency for building .">
@@ -17,6 +17,7 @@ import Main from "../components/Main.astro";
     <Promise />
     <Pricing />
     <ContactSection />
+    <Faq />
     <Footer />
 </Layout>
 
@@ -85,8 +86,6 @@ import Main from "../components/Main.astro";
         font-family: "Roboto", sans-serif;
         font-size: 16px;
         line-height: 1.5;
-        
-        
     }
     ::-webkit-scrollbar {
         width: 8px;
@@ -105,3 +104,6 @@ import Main from "../components/Main.astro";
         background: #f97316;
     }
 </style>
+
+
+    

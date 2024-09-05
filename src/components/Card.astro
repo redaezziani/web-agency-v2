@@ -1,7 +1,7 @@
 ---
 import Image from "astro/components/Image.astro";
 
- const { title, description, image, link } = Astro.props;
+ const { title, description, image } = Astro.props;
 ---
 
 <article
@@ -9,23 +9,18 @@ aria-label="card"
 class=" card col-span-1 lg:ml-2 gap-3 bg-slate-900 flex flex-col  justify-start items-center overflow-hidden "
 >
     <div class="w-full h-52 rounded-sm overflow-hidden  flex justify-center items-center">
-        <Image
+        {image && <Image
             height={200}
             width={300}
             class="w-full h-full rounded-sm object-cover"
             src={image}
             alt="card image"
-        />
+        />}
     </div>
     <div class=" w-full py-2">
         <h2 class="text-white
         text-lg font-bold line-clamp-1">{title}</h2>
         <p class="text-slate-500 text-sm line-clamp-3">{description}</p>
-        <a
-            href={link}
-            class="text-primary mt-4 text-sm font-bold hover:underline"
-        >
-            Read More
-        </a>
+       
     </div>
 </article>
