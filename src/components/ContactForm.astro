@@ -1,11 +1,11 @@
 <div
-    class="bg-white w-full  lg:min-w-[40rem] border border-slate-400/35 rounded-xl overflow-hidden lg:absolute -right-[30rem] -top-32 flex flex-col gap-3 justify-start items-start"
+    class="bg-white w-full lg:min-w-[40rem] border border-slate-400/35 rounded-xl overflow-hidden lg:absolute -right-[30rem] -top-32 flex flex-col gap-3 justify-start items-start"
 >
     <div
         class="w-full flex-col items-center mt-4 capitalize flex justify-center"
     >
         <h5 class="text-primary text-xl font-semibold leading-none text-center">
-            Planifiez une consultation gratuite
+            Planifiez une Consultation Gratuite
         </h5>
         <hr class="w-full h-[1px] mt-4 bg-slate-400/35 rounded-full" />
     </div>
@@ -22,6 +22,7 @@
                 </label>
                 <input
                     id="first-name"
+                      name="first-name"
                     placeholder="Entrez votre prénom"
                     class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
@@ -29,9 +30,7 @@
                 <span
                     id="first-name-error"
                     class="text-xs text-red-500"
-                    class="text-xs text-red-500"
-                >
-                </span>
+                ></span>
             </div>
             <div
                 class="flex flex-col gap-2 justify-start items-start w-full lg:w-[48%]"
@@ -40,15 +39,16 @@
                     class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     for="last-name"
                 >
-                    Nom de famille
+                    Nom de Famille
                 </label>
                 <input
                     id="last-name"
+                      name="last-name"
                     placeholder="Entrez votre nom de famille"
                     class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
                 />
-                <span id="last-name-error" class="text-xs text-red-500"> </span>
+                <span id="last-name-error" class="text-xs text-red-500"></span>
             </div>
         </div>
 
@@ -61,11 +61,12 @@
             </label>
             <input
                 id="company"
+                 name="company"
                 placeholder="Entrez le nom de votre entreprise"
                 class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
             />
-            <span id="company-error" class="text-xs text-red-500"> </span>
+            <span id="company-error" class="text-xs text-red-500"></span>
         </div>
 
         <div class="flex flex-col gap-2 justify-start items-start w-full">
@@ -73,10 +74,11 @@
                 class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 for="company-email"
             >
-                Email de l'entreprise
+                Email de l'Entreprise
             </label>
             <input
                 id="company-email"
+                name="company-email"
                 placeholder="Entrez l'email de votre entreprise"
                 class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
@@ -89,15 +91,16 @@
                 class="text-md font-semibold leading-none text-slate-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 for="phone-number"
             >
-                Numéro de téléphone (+212)
+                Numéro de Téléphone (+212)
             </label>
             <input
                 id="phone-number"
+                name="phone-number"
                 placeholder="Entrez votre numéro de téléphone"
                 class="flex h-10 w-full rounded-md border border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
                 type="text"
             />
-            <span id="phone-number-error" class="text-xs text-red-500"> </span>
+            <span id="phone-number-error" class="text-xs text-red-500"></span>
         </div>
 
         <div class="flex flex-col gap-2 justify-start items-start w-full">
@@ -109,10 +112,11 @@
             </label>
             <textarea
                 id="message"
+                name="message"
                 placeholder="Entrez votre message"
                 class="flex h-10 w-full rounded-md border min-h-32 border-slate-400/35 bg-transparent px-3 py-2 text-sm text-slate-600 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:border-none disabled:cursor-not-allowed disabled:opacity-50"
             ></textarea>
-            <span id="message-error" class="text-xs text-red-500"> </span>
+            <span id="message-error" class="text-xs text-red-500"></span>
         </div>
 
         <button

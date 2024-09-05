@@ -1,8 +1,21 @@
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="36.000000pt" height="48.000000pt" viewBox="0 0 36.000000 48.000000"
- preserveAspectRatio="xMidYMid meet">
-
-<g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-</g>
-</svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  stroke-width="2"
+  stroke="currentColor"
+  fill="none"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+    d="M7 8l-4 4l4 4"></path><path d="M17 8l4 4l-4 4"></path><path
+    d="M14 4l-4 16"></path>
+    <style>
+        svg { color: #000; }
+        @media (prefers-color-scheme: dark) {
+            svg { color: #FFF; }
+        }
+    </style>
+    </svg
+>
