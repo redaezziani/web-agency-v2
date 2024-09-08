@@ -1,129 +1,86 @@
-<div class="w-full max-w-7xl relative flex justify-center items-center min-h-96 bg-white">
-    <section class="text-center relative max-w-4xl">
+---
+import Image from "astro/components/Image.astro";
+
+const users = [
+    {
+        name: "Reda Mansouri",
+        role: "Lymo Client",
+        avatar: "./avatars/avatar-1.jpg",
+        testimonial:
+            "L'interface est tellement intuitive que même mes employés les moins technophiles l'ont adoptée rapidement",
+    },
+    {
+        name: "Sarah Alaoui",
+        role: "Marketing Manager",
+        avatar: "./avatars/avatar-2.jpg",
+        testimonial:
+            "Lymo a totalement changé notre façon de gérer les prospects. C'est une véritable révolution dans notre processus de conversion. Grâce à Lymo",
+    },
+    {
+        name: "Karim Benkirane",
+        role: "CEO",
+        avatar: "./avatars/avatar-3.jpg",
+        testimonial:
+            "Nous avons pu réduire nos coûts de gestion de la relation client de 30% en seulement 3 mois. Lymo est un outil indispensable pour toute entreprise qui souhaite optimiser ses performances.",
+
+    }
+];
+---
+
+<div
+    class="relative p-3 mt-5 w-full bg-slate-900 flex justify-center items-center min-h-[32rem]"
+>
+    <section class="text-center relative max-w-6xl">
         <div class="font-nycd text-xl text-primary mb-4">
             <span class="relative inline-flex">
                 <span>Notre promesse</span>
-                <svg class="fill-primary absolute bottom-0" xmlns="http://www.w3.org/2000/svg" width="132" height="4">
-                    <path fill-opacity=".4" fill-rule="evenodd" d="M131.014 2.344s-39.52 1.318-64.973 1.593c-25.456.24-65.013-.282-65.013-.282C-.34 3.623-.332 1.732.987 1.656c0 0 39.52-1.32 64.973-1.593 25.455-.24 65.012.282 65.012.282 1.356.184 1.37 1.86.042 1.999" />
+                <svg
+                    class="fill-primary absolute bottom-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="132"
+                    height="4"
+                >
+                    <path
+                        fill-opacity=".4"
+                        fill-rule="evenodd"
+                        d="M131.014 2.344s-39.52 1.318-64.973 1.593c-25.456.24-65.013-.282-65.013-.282C-.34 3.623-.332 1.732.987 1.656c0 0 39.52-1.32 64.973-1.593 25.455-.24 65.012.282 65.012.282 1.356.184 1.37 1.86.042 1.999"
+                    ></path>
                 </svg>
             </span>
         </div>
-        <div class=" text-2xl lg:text-4xl leading-tight font-bold text-slate-700">
-            <span class="[&:has(~.active)]:opacity-25 [&.active~*]:opacity-25 transition-opacity duration-200">Nous vous aiderons à augmenter vos revenus</span>
-            <div
-                class="[&:has(~.active)]:opacity-25 [&.active~*]:opacity-25 transition-opacity duration-200 relative inline-flex justify-center w-[52px] h-[52px] align-middle -translate-y-1 z-50"
-                x-data="{ open: false }"
-                :class="{ 'active': open }"
-                @mouseover.outside="open = false"
-                @focusout="await $nextTick();!$el.contains($focus.focused()) && (open = false)"
-            >
-                <button
-                    class="size-14 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/50 rounded-full overflow-hidden rotate-[4deg] transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)] delay-100"
-                    :class="{ 'rotate-0': open }"
-                    aria-labelledby="avatars/avatar-1"
-                    @mouseover="open = true"
-                    @focus="open = true"
-                >
-                    <img class="absolute top-1/2 -translate-y-1/2 rounded-full" src="./avatars/avatar-1.jpg" width="52" height="52" alt="avatars/avatar-1">
-                </button>
-                <div
-                    id="avatars/avatar-1"
-                    role="tooltip"
-                    class="absolute top-full pt-5 [&[x-cloak]]:hidden"
-                    x-ref="tooltip"
-                    x-cloak
-                >
-                    <div
-                        class="relative w-80 after:absolute after:-top-1.5 after:left-1/2 after:-translate-x-1/2 after:h-3 after:w-3 after:rounded-tl-sm after:rotate-45 after:bg-slate-900"
-                        x-show="open"
-                        x-transition:enter="transition ease-[cubic-bezier(.5,.85,.25,1.8)] duration-200 delay-100"
-                        x-transition:enter-start="opacity-0 translate-y-2"
-                        x-transition:enter-end="opacity-100 translate-y-0"
-                        x-transition:leave="transition ease-[cubic-bezier(.5,.85,.25,1.8)] duration-100 delay-100"
-                        x-transition:leave-start="opacity-100"
-                        x-transition:leave-end="opacity-0"                               
-                    >
+        <div
+            class=" w-full mt-10 max-w-7xl gap-4 flex justify-between items-center flex-col lg:flex-row"
+        >
+            {
+                users.map((user, index) => (
+                    <div class=" min-h-52 bg-slate-800 border border-slate-400/35 rounded-md p-2 w-full  flex flex-col justify-start items-start gap-4">
                         <div
-                            class="relative bg-slate-900 p-5 rounded-lg shadow-xl text-left text-sm text-slate-200 font-medium space-y-3"
-                            x-init="$watch('open', value => { $nextTick(() => {
-                                $refs.tooltip.getBoundingClientRect().left < 0 ? $el.style.left = Math.abs($refs.tooltip.getBoundingClientRect().left) + $root.getBoundingClientRect().left - 4 + 'px' : $el.style.left = null;
-                                $refs.tooltip.getBoundingClientRect().right > document.documentElement.offsetWidth ? $el.style.right = Math.abs($refs.tooltip.getBoundingClientRect().right) - $root.getBoundingClientRect().right - 4 + 'px' : $el.style.right = null;
-                            } )} )"                                     
-                        >
-                            <svg class="fill-primary" xmlns="http://www.w3.org/2000/svg" width="17" height="14" aria-hidden="true">
-                                <path fill-rule="nonzero" d="M2.014 3.68c.276-1.267.82-2.198 1.629-2.79C4.453.295 5.627 0 7.167 0c.514 0 .908.02 1.185.061L5.035 10.49c-.75 2.494-2.429 3.66-5.035 3.496L2.014 3.68Zm8.648 0c.237-1.227.77-2.147 1.6-2.76C13.09.307 14.274 0 15.814 0c.514 0 .909.02 1.185.061L13.683 10.49c-.79 2.494-2.468 3.66-5.035 3.496L10.662 3.68Z" />
-                            </svg>
-                            <p>
-                                L'interface est tellement intuitive que même mes
-employés les moins technophiles l'ont adoptée
-rapidement
-                            </p>
-                            <p>
-                                Reda Mansouri <span class="text-slate-600">-</span> <span class="text-slate-400">Lymo Client</span> 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <span class="[&:has(~.active)]:opacity-25 [&.active~*]:opacity-25 transition-opacity duration-200">gérer les fiches de paie</span>
-            <div
-                class="[&:has(~.active)]:opacity-25 [&.active~*]:opacity-25 transition-opacity duration-200 relative inline-flex justify-center w-[52px] h-[52px] align-middle -translate-y-1 z-40"
-                x-data="{ open: false }"
-                :class="{ 'active': open }"
-                @mouseover.outside="open = false"
-                @focusout="await $nextTick();!$el.contains($focus.focused()) && (open = false)"
-            >
-                <button
-                    class="size-14 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/50 rounded-full overflow-hidden -rotate-[4deg] transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)] delay-100"
-                    :class="{ 'rotate-0': open }"
-                    aria-labelledby="avatars/avatar-2"
-                    @mouseover="open = true"
-                    @focus="open = true"
-                >
-                    <img class="absolute top-1/2 -translate-y-1/2 rounded-full" src="./avatars/avatar-2.jpg" width="52" height="52" alt="avatars/avatar-2">
-                </button>
-                <div
-                    id="avatars/avatar-2"
-                    role="tooltip"
-                    class="absolute top-full pt-5 [&[x-cloak]]:hidden"
-                    x-ref="tooltip"
-                    x-cloak
-                >
-                    <div
-                        class="relative w-80 after:absolute after:-top-1.5 after:left-1/2 after:-translate-x-1/2 after:h-3 after:w-3 after:rounded-tl-sm after:rotate-45 after:bg-slate-900"
-                        x-show="open"
-                        x-transition:enter="transition ease-[cubic-bezier(.5,.85,.25,1.8)] duration-200 delay-100"
-                        x-transition:enter-start="opacity-0 translate-y-2"
-                        x-transition:enter-end="opacity-100 translate-y-0"
-                        x-transition:leave="transition ease-[cubic-bezier(.5,.85,.25,1.8)] duration-100 delay-100"
-                        x-transition:leave-start="opacity-100"
-                        x-transition:leave-end="opacity-0"                               
-                    >
-                        <div
-                            class="relative text-sm  bg-slate-900 p-5 rounded-lg shadow-xl text-left  text-slate-200 font-medium space-y-3"
-                            x-init="$watch('open', value => { $nextTick(() => {
-                                $refs.tooltip.getBoundingClientRect().left < 0 ? $el.style.left = Math.abs($refs.tooltip.getBoundingClientRect().left) + $root.getBoundingClientRect().left - 4 + 'px' : $el.style.left = null;
-                                $refs.tooltip.getBoundingClientRect().right > document.documentElement.offsetWidth ? $el.style.right = Math.abs($refs.tooltip.getBoundingClientRect().right) - $root.getBoundingClientRect().right - 4 + 'px' : $el.style.right = null;
-                            } )} )"                                     
-                        >
-                            <svg class="fill-primary" xmlns="http://www.w3.org/2000/svg" width="17" height="14" aria-hidden="true">
-                                <path fill-rule="nonzero" d="M2.014 3.68c.276-1.267.82-2.198 1.629-2.79C4.453.295 5.627 0 7.167 0c.514 0 .908.02 1.185.061L5.035 10.49c-.75 2.494-2.429 3.66-5.035 3.496L2.014 3.68Zm8.648 0c.237-1.227.77-2.147 1.6-2.76C13.09.307 14.274 0 15.814 0c.514 0 .909.02 1.185.061L13.683 10.49c-.79 2.494-2.468 3.66-5.035 3.496L10.662 3.68Z" />
-                            </svg>
-                            <p>
-                                Lymo a totalemen
-                                de gérer les prospects
-                                déjà une amélioration s
-                                de conversion
-                            </p>
-                            <p>
-                                Sarah Alaoui <span class="text-slate-600">-</span> <span class="text-slate-400">Marketing Manager</span> 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <span class="[&:has(~.active)]:opacity-25 [&.active~*]:opacity-25 transition-opacity duration-200">et économisez jusqu'à 50+ heures de travail chaque mois</span>
+                        class="flex justify-start items-center gap-2">
+                            <img
+                                src={user.avatar}
+                                alt={user.name}
+                                class="size-14 rounded-full"
+                            />
 
+                            <div class="flex justify-start flex-col items-start ">
+                                <span class="text-slate-50 text-base ">
+                                    {user.name}
+                                </span>
+                                <span class="text-slate-400 text-sm">
+                                    {user.role}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <p
+                            class="text-slate-400 line-clamp-4 text-start
+                    text-sm max-w-2xl"
+                        >
+                            {user.testimonial}
+                        </p>
+                    </div>
+                ))
+            }
         </div>
     </section>
 </div>

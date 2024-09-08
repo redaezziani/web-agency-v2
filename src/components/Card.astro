@@ -1,26 +1,28 @@
 ---
-import Image from "astro/components/Image.astro";
 
  const { title, description, image } = Astro.props;
 ---
+<div class="w-full justify-center items-center flex">
 
 <article
 aria-label="card"
-class=" card col-span-1 lg:ml-2 gap-3 bg-slate-900 flex flex-col  justify-start items-center overflow-hidden "
+class=" card col-span-1 max-w-80 aspect-square  lg:ml-2 rounded-md gap-3 bg-slate-50 border border-slate-300/35 p-3 flex flex-col  justify-center items-center overflow-hidden "
 >
-    <div class="w-full h-52 rounded-sm overflow-hidden  flex justify-center items-center">
-        {image && <Image
-            height={200}
-            width={300}
-            class="w-full h-full rounded-sm object-cover"
-            src={image}
-            alt="card image"
-        />}
+    <div class="w-full mx-auto  rounded-sm overflow-hidden  flex justify-center items-center">
+        <svg
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="62" height="62" color="#000000" fill="none">
+            <ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.5" />
+            <path d="M7 10.842C7.60158 11.0229 8.27434 11.1718 9 11.282" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M20 12C20 13.6569 16.4183 15 12 15C7.58172 15 4 13.6569 4 12" stroke="currentColor" stroke-width="1.5" />
+            <path d="M7 17.842C7.60158 18.0229 8.27434 18.1718 9 18.282" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M20 5V19C20 20.6569 16.4183 22 12 22C7.58172 22 4 20.6569 4 19V5" stroke="currentColor" stroke-width="1.5" />
+        </svg>
     </div>
-    <div class=" w-full py-2">
-        <h2 class="text-white
+    <div class=" w-full py-2 text-center">
+        <h2 class="text-slate-800
         text-lg font-bold line-clamp-1">{title}</h2>
         <p class="text-slate-500 text-sm line-clamp-3">{description}</p>
        
     </div>
 </article>
+</div>

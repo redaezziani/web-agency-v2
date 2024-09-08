@@ -1,58 +1,91 @@
 ---
 import Card from "./Card.astro";
+import Image1 from "../components/icons/card-1.svg";
 
 const features = [
     {
         title: "Base de Données Centralisée",
-        description: "Centralisez toutes les données relatives à vos prospects et clients en un seul endroit.",
-        image :"/cards/card-1.webp"
+        description:
+            "Centralisez toutes les données relatives à vos prospects et clients en un seul endroit.",
+        image: Image1,
     },
     {
         title: "Interface Utilisateur Intuitive",
-        description: "Visualisez les informations essentielles à travers un tableau de bord clair et ergonomique.",
-        image :"/cards/card-2.webp"
+        description:
+            "Visualisez les informations essentielles à travers un tableau de bord clair et ergonomique.",
+        image: "/cards/card-2.webp",
     },
     {
         title: "Visualisation Avancée des Données",
-        description: "Analysez vos performances avec des graphiques interactifs et des visualisations de données dynamiques.",
-        image :"/cards/card-3.webp"
+        description:
+            "Analysez vos performances avec des graphiques interactifs et des visualisations de données dynamiques.",
+        image: "/cards/card-3.webp",
     },
     {
         title: "Rapports Personnalisés",
-        description: "Créez des rapports détaillés adaptés à vos besoins spécifiques pour suivre les progrès et les tendances.",
-        image :"/cards/card-4.webp"
+        description:
+            "Créez des rapports détaillés adaptés à vos besoins spécifiques pour suivre les progrès et les tendances.",
+        image: "/cards/card-4.webp",
     },
     {
         title: "Performance et Pilotage Interne (KPI)",
-        description: "Surveillez les performances de votre entreprise grâce à des indicateurs clés de performance (KPI) personnalisés.",
-        image :"/cards/card-5.webp"
+        description:
+            "Surveillez les performances de votre entreprise grâce à des indicateurs clés de performance (KPI) personnalisés.",
+        image: "/cards/card-5.webp",
     },
     {
         title: "Contrôle Administratif",
-        description: "Gérez les droits et permissions des utilisateurs pour assurer une utilisation sécurisée du système.",
-        image :"/cards/card-6.webp"
-    }
+        description:
+            "Gérez les droits et permissions des utilisateurs pour assurer une utilisation sécurisée du système.",
+        image: "/cards/card-6.webp",
+    },
 ];
-
 ---
 
 <section
-id="services"
-class=" px-3  relative min-h-[30rem] bg-slate-900 flex-col w-full py-5 md:px-0 flex overflow-hidden justify-center items-center  mt-2"
+    id="services"
+    class="px-3 relative min-h-[30rem] flex-col w-full py-5 md:px-0 flex overflow-hidden justify-center items-center mt-2"
 >
-<div class="grid absolute z-0 lg:grid-cols-3  w-full h-full max-w-7xl gap-2">
-    <span class=" w-1  h-full border-l border-slate-700 border-dashed"></span>
-    <span class=" w-1 h-full border-l border-slate-700 border-dashed"></span>
-    <span class=" w-1 h-full border-l border-slate-700 border-dashed"></span>
+<div class="font-nycd text-xl text-primary mb-4">
+    <span class="relative inline-flex">
+        <span>
+            Nos Services
+        </span>
+        <svg
+            class="fill-primary absolute bottom-0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="132"
+            height="4"
+        >
+            <path
+                fill-opacity=".4"
+                fill-rule="evenodd"
+                d="M131.014 2.344s-39.52 1.318-64.973 1.593c-25.456.24-65.013-.282-65.013-.282C-.34 3.623-.332 1.732.987 1.656c0 0 39.52-1.32 64.973-1.593 25.455-.24 65.012.282 65.012.282 1.356.184 1.37 1.86.042 1.999"
+            ></path>
+        </svg>
+    </span>
 </div>
+    <div
+        class=" hidden absolute top-16 md:grid z-0 lg:grid-cols-3 mt-5 w-full h-full max-w-7xl gap-2"
+    >
+        <span
+            class="w-1 h-full col-start-2 border-l border-slate-300 border-dashed"
+        ></span>
+        <span class="w-1 h-full border-l border-slate-300 border-dashed"></span>
+    </div>
 
-<div class="grid  z-10 py-3  lg:grid-cols-3    w-full h-full max-w-7xl gap-2">
-    {features.map((feature, index) => (
-        <Card title={feature.title} description={feature.description} image={feature.image}  key={index} /> 
-    ))}
-
-</div>
-</div>
+    <div class="grid z-10 py-3 lg:grid-cols-3 gap-4 w-full h-full max-w-7xl">
+        {
+            features.map((feature, index) => (
+                <Card
+                    title={feature.title}
+                    description={feature.description}
+                    image={feature.image}
+                    key={index}
+                />
+            ))
+        }
+    </div>
 </section>
 
 <script>
@@ -73,5 +106,4 @@ class=" px-3  relative min-h-[30rem] bg-slate-900 flex-col w-full py-5 md:px-0 f
             delay: 0.3 * index,
         });
     });
-
 </script>
